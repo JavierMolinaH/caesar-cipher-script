@@ -10,11 +10,11 @@ The algorithm of Caesar cipher holds the following features:
 * It is simple type of substitution cipher.
 * Each letter of plain text is replaced by a letter with some fixed number of positions down with alphabet.
 
-## Technology Stack
+## Technology stack
 
 * [Python 3.9](https://www.python.org/downloads/release/python-390/)
 
-## How to run
+## Run program
 
 ```bash
 $ python caesar.py 1
@@ -22,4 +22,10 @@ Enter message to encrypt:
 HELLO
 plaintext: HELLO
 ciphertext: IFMMP
+```
+
+## Run tests
+
+```bash
+python -m unittest discover -s ./tests -p '*test*.py' --verbose
 ```
