@@ -50,14 +50,14 @@ class CaesarTest(TestCase):
 
     def test_without_command_line_argument_error(self):
         testargs = [None]
-        with self.assertRaises(Exception):
+        with self.assertRaises(SystemExit):
             with patch.object(sys, 'argv', testargs):
                 with patch('builtins.input'):
                     Caesar()
 
     def test_more_than_one_command_line_arguments_error(self):
         testargs = [None, 1, 2, 3, 4, 5]
-        with self.assertRaises(Exception):
+        with self.assertRaises(SystemExit):
             with patch.object(sys, 'argv', testargs):
                 with patch('builtins.input'):
                     Caesar()
