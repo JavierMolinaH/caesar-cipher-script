@@ -11,13 +11,15 @@ class Caesar:
 
     def get_sys_arguments(self) -> None:
         if len(sys.argv) == 1:
-            raise Exception(
+            self.print_errors(
                 'No command line argument was provided for "shift".'
             )
+            exit(1)
         if len(sys.argv) > 2:
-            raise Exception(
+            self.print_errors(
                 'Too many command line arguments.'
             )
+            exit(1)
         self.shift = int(sys.argv[1])
 
     def get_input_plaintext(self) -> None:
