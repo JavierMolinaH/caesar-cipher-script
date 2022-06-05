@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+import sys
+
+import caesar_cipher
 
 
 class Caesar:
@@ -7,25 +10,35 @@ class Caesar:
         self.get_input_plaintext()
 
     def get_sys_arguments(self) -> None:
-        pass
+        if len(sys.argv) == 1:
+            raise Exception(
+                'No command line argument was provided for "shift".'
+            )
+        if len(sys.argv) > 2:
+            raise Exception(
+                'Too many command line arguments.'
+            )
+        self.shift = int(sys.argv[1])
 
     def get_input_plaintext(self) -> None:
-        pass
+        self.plaintext = input('Enter message to encrypt:\n')
 
     def print_plaintext(self) -> None:
-        pass
+        print(f'plaintext: {self.plaintext}')
 
     def print_ciphertext(self) -> None:
-        pass
+        print(f'ciphertext: {self.result}')
 
     def print_errors(self, errorMessage: str):
-        pass
+        print(f'Error: {errorMessage}')
 
     def encrypt_phrase(self):
-        pass
+        self.result = caesar_cipher.encrypt(self.plaintext, self.shift)
 
     def run(self) -> None:
-        pass
+        self.encrypt_phrase()
+        self.print_plaintext()
+        self.print_ciphertext()
 
 
 if __name__ == '__main__':

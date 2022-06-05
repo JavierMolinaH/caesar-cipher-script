@@ -30,7 +30,7 @@ class CaesarTest(TestCase):
                         f'ciphertext: {expected_result}'
                     )
 
-    def test_hello_phrase(self):
+    def test_short_phrase(self):
         testargs = [None, 1]
         input_value = 'HELLO'
         expected_result = 'IFMMP'
@@ -50,18 +50,14 @@ class CaesarTest(TestCase):
 
     def test_without_command_line_argument_error(self):
         testargs = [None]
-        with patch.object(sys, 'argv', testargs):
-            with patch('builtins.input'):
-                Caesar()
+        with self.assertRaises(Exception):
+            with patch.object(sys, 'argv', testargs):
+                with patch('builtins.input'):
+                    Caesar()
 
     def test_more_than_one_command_line_arguments_error(self):
         testargs = [None, 1, 2, 3, 4, 5]
-        with patch.object(sys, 'argv', testargs):
-            with patch('builtins.input'):
-                Caesar()
-
-    def test_negative_command_line_argument_error(self):
-        testargs = [None, -1]
-        with patch.object(sys, 'argv', testargs):
-            with patch('builtins.input'):
-                Caesar()
+        with self.assertRaises(Exception):
+            with patch.object(sys, 'argv', testargs):
+                with patch('builtins.input'):
+                    Caesar()
