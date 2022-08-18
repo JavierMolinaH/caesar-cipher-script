@@ -12,7 +12,7 @@ class Caesar:
     def get_sys_arguments(self) -> None:
         if len(sys.argv) == 1:
             self.print_errors(
-                'No command line argument was provided for "shift".'
+                'No command line argument was provided 4 "shift".'
             )
             exit(1)
         if len(sys.argv) > 2:
